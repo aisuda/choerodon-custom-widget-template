@@ -1,0 +1,87 @@
+{
+  "name": "choerodon-custom-widget-template",
+  "version": "1.0.0",
+  "description": "amis自定义组件模板（react技术栈、choerodon-ui）",
+  "keywords": [
+    "自定义组件模板",
+    "react技术栈",
+    "amis自定义组件",
+    "amis-editor自定义插件"
+  ],
+  "author": "fex",
+  "license": "MIT",
+  "scripts": {
+    "dev": "amis dev",
+    "preview": "amis preview",
+    "linkDebug": "amis linkDebug",
+    "build2lib": "amis build2lib",
+    "format": "prettier --write \"src/**/**/*.{js,jsx,ts,tsx,vue,scss,json}\""
+  },
+  "files": [
+    "dist/*"
+  ],
+  "framework": "react",
+  "amis-widgets": [
+    {
+      "name": "react-info-card",
+      "framework": "react",
+      "usage": "renderer",
+      "type": "react-info-card",
+      "entry": "/dist/reactInfoCard.umd",
+      "files": [
+        "/dist/reactInfoCard.css"
+      ],
+      "editorPlugin": {
+        "name": "react-info-card-plugin",
+        "description": "信息展示卡片",
+        "pluginEntry": "/dist/reactInfoCardPlugin.umd",
+        "tag": [
+          "展示"
+        ],
+        "sort": 100
+      }
+    }
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/**/*.{js,jsx,ts,tsx,vue,scss,json}": [
+      "prettier --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git@github.com:aisuda/choerodon-custom-widget-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aisuda/choerodon-custom-widget-template/issues"
+  },
+  "dependencies": {
+    "amis-widget": "^3.0.6",
+    "choerodon-ui": "^1.5.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "mobx-react-lite": "1.5.2",
+    "mobx": "4.15.7",
+    "mobx-react": "6.1.5",
+    "echarts": "^5.4.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^9.1.1",
+    "amis-widget-cli": "^3.0.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.9",
+    "prettier": "^2.0.5",
+    "babel-plugin-import": "^1.13.5",
+    "craco-less": "^2.0.0"
+  },
+  "engines": {
+    "node": ">= 10.13.0",
+    "npm": ">= 6.4.1"
+  }
+}
